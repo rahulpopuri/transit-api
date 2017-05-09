@@ -18,15 +18,20 @@
     "q": "0.8.x",
     "xml2object": "0.1.x",
     "csv": "0.2.x",
-    "common-api": "0.0.x"
+    "common-api": "0.0.x",
+    "actions-on-google": "^1.0.0"
   },
   "scripts": {
+    "lint": "semistandard --fix \"**/*.js\"",
+    "start": "functions deploy predictions --trigger-http",
+    "deploy": "gcloud beta functions deploy predictions --trigger-http --stage-bucket <storage_bucket_name>",
     "test-nextbus": "mocha test/nextbus.js"
   },
-  "main": "transit.js",
+  "main": "index.js",
   "devDependencies": {
     "chai": "^3.2.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "semistandard": "^9.1.0"
   },
   "optionalDependencies": {},
   "engines": {
